@@ -1,0 +1,23 @@
+{
+  "manifest_version": 3,
+  "name": "Smart Dark Mode",
+  "version": "1.0.0",
+  "description": "Intelligent dark mode that preserves brand colors and fixes contrast automatically.",
+  "permissions": ["storage", "activeTab", "scripting"],
+  "host_permissions": ["<all_urls>"],
+  "action": {
+    "default_popup": "popup.html",
+    "default_title": "Smart Dark Mode"
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["content.js"],
+      "run_at": "document_start",
+      "all_frames": true
+    }
+  ],
+  "background": {
+    "service_worker": "background.js"
+  }
+}
